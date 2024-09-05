@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace Cryptocurrencies.Helpers
 {
-    internal class JsonHelper
+    public static class JsonHelper
     {
+        public static T Deserialize<T>(string jsonString)
+        {
+            return JsonConvert.DeserializeObject<T>(jsonString);
+        }
     }
 }
