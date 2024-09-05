@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Cryptocurrencies.Views
 {
@@ -9,32 +8,33 @@ namespace Cryptocurrencies.Views
         public SearchView()
         {
             InitializeComponent();
-
-            if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
-            {
-                SearchTextBox.Text = "Enter cryptocurrency name";
-                SearchTextBox.Foreground = Brushes.Gray;
-            }
+            SearchTextBox.Text = "Enter cryptocurrency name";
+            SearchTextBox.Foreground = System.Windows.Media.Brushes.Gray;
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            var textBox = sender as TextBox;
-            if (textBox != null && textBox.Text == "Enter cryptocurrency name")
+            if (SearchTextBox.Text == "Enter cryptocurrency name")
             {
-                textBox.Text = string.Empty;
-                textBox.Foreground = Brushes.Black;
+                SearchTextBox.Text = "";
+                SearchTextBox.Foreground = System.Windows.Media.Brushes.Black;
             }
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            var textBox = sender as TextBox;
-            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
             {
-                textBox.Text = "Enter cryptocurrency name";
-                textBox.Foreground = Brushes.Gray;
+                SearchTextBox.Text = "Enter cryptocurrency name";
+                SearchTextBox.Foreground = System.Windows.Media.Brushes.Gray;
             }
+        }
+
+        private void BackToMainWindow(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close(); 
         }
     }
 }

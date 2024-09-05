@@ -7,12 +7,14 @@
     <Grid Margin="20">
         <StackPanel>
             <TextBlock Text="Search Cryptocurrencies" FontSize="16" Margin="0,0,0,10"/>
+
             <TextBox Name="SearchTextBox"
                      Width="360" Height="30"
                      Foreground="Gray"
                      GotFocus="TextBox_GotFocus"
                      LostFocus="TextBox_LostFocus"
-                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     TextChanged="TextBox_TextChanged"/>
 
             <ListBox ItemsSource="{Binding SearchResults}" Margin="0,10,0,0">
                 <ListBox.ItemTemplate>
@@ -21,6 +23,8 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <Button Content="Back to Main Window" Width="100" Height="30" HorizontalAlignment="Right" Click="BackToMainWindow"/>
         </StackPanel>
     </Grid>
 </Window>
