@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cryptocurrencies.ViewModels
+﻿namespace Cryptocurrencies.ViewModels
 {
-    internal class SettingsViewModel
+    public class SettingsViewModel : BaseViewModel
     {
+        private bool _isDarkModeEnabled;
+
+        public bool IsDarkModeEnabled
+        {
+            get => _isDarkModeEnabled;
+            set
+            {
+                _isDarkModeEnabled = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
